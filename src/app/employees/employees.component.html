@@ -1,0 +1,36 @@
+
+<div class="parent">
+    <div class="top">
+        <div class="left"></div>
+        <div class="right">
+            <label >name</label>
+            <input type="text" [(ngModel)]="name">
+            <label>experience</label>
+            <input type="text" [(ngModel)]="experience">
+            <label>package</label>
+            <input type="text" [(ngModel)]="package">
+            <label>role</label>
+            <input type="text" [(ngModel)]="role">
+            <button (click)="create()">create</button>
+        </div>
+    </div>
+    <div class="bottom">
+        <h2>list of employees</h2>
+        <div *ngFor="let employee of employees let i=index">
+            <label>S.no:{{i+1}}</label><br>
+            <label>name:{{employee.name}}</label><br>
+            <label>experience:{{employee.experience}}</label><br>
+            <label>package:{{employee.package}}</label><br>
+            <label>role:{{employee.role}}</label><br>
+            <button (click)="delete(i)">delete</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

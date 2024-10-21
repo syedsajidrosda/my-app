@@ -1,0 +1,47 @@
+.green{
+    background-color: green;
+    color: orange;
+}
+
+.red{
+    background-color: red;
+    color: orange;
+}
+body {
+    background-color: #121212; /* Dark background for the body */
+    color: #ffffff;            /* White text for contrast */
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;           /* Add some margin around the table */
+}
+
+thead {
+    background-color: #1f1f1f; /* Darker background for the header */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #333;    /* Border color for cells */
+}
+
+tbody tr {
+    background-color: #1a1a1a; /* Default background for rows */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #222;     /* Lighter background for even rows */
+}
+
+tbody tr:hover {
+    background-color: #444;     /* Highlight effect on row hover */
+}
+
+th {
+    color: #ffffff;             /* White text for headers */
+    font-weight: bold;          /* Bold headers */
+}

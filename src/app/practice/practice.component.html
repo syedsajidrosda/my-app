@@ -1,0 +1,38 @@
+<p>practice works!</p>
+
+<button (click)="add20()">add 20 delivery charges</button><br>
+<button (click)="discount()">50%Discount</button><br>
+<button (click)="pricelh()">price low to high</button><br>
+<button (click)="pricehl()">price high to low</button><br>
+<br>
+<select [(ngModel)]="category" (change)="categorychange()">
+    <option value="gadgets">GADGETS</option>
+    <option value="accessories">ACCESSORIES</option>
+    <option value="footware">FOOTWARE</option>
+    <option value="fashion">FASHION</option>
+</select>
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="search()">
+<button (click)="totalprice()">total cart price</button>
+<p>total cart items:<mark>{{products.length}}</mark></p>
+<table class="light-table" border="1">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>category</th>
+            <th>price</th>
+            <th>rating</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+            
+        </tr>
+
+    </tbody>
+</table>

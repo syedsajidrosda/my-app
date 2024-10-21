@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.light-table {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 80%;
+}
+
+.table-header {
+    background-color: #f0f8ff;
+    display: flex;
+}
+
+.header-cell {
+    flex: 1;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+.table-row {
+    display: flex;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.table-row:nth-child(even) .table-cell {
+    background-color: #f9f9f9;
+}
+
+.table-row:last-child .table-cell {
+    border-bottom: none;
+}

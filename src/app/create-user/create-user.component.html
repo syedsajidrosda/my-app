@@ -1,0 +1,123 @@
+<p>create-user works!</p>
+<form [formGroup]="userform">
+
+
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <div *ngif="userform.get('name')?.touched && userform.get('name')?.invalid">
+        <p class="error" *ngif="userform.get('name')?.errors?.['required']">Name is required</p>
+        <p class="error" *ngif="userform.get('name')?.errors?.['minlength']">minimum 3 chars</p>
+        <p class="error" *ngif="userform.get('name')?.errors?.['maxlength']">maximum 10 chars</p>
+
+    </div>
+    <br>
+
+
+    <label for="">Age:</label>
+    <input type="number" formControlName="age">
+    <div *ngif="userform.get('age')?.touched && userform.get('age')?.invalid">
+        <p class="error" *ngif="userform.get('age')?.errors?.['required']">Age is required</p>
+        <p class="error" *ngif="userform.get('age')?.errors?.['minlength']">minimum 18 digits</p>
+        <p class="error" *ngif="userform.get('age')?.errors?.['maxlength']">maximum 60 digits</p>
+
+    </div>
+
+    <br>
+    <label for="">phone:</label>
+    <input type="number" formControlName="phone">
+    <div *ngif="userform.get('phone')?.touched && userform.get('phone')?.invalid">
+        <p class="error" *ngif="userform.get('phone')?.errors?.['required']">phone is required</p>
+        <p class="error" *ngif="userform.get('phone')?.errors?.['minlength']">minimum 10 digits</p>
+        <p class="error" *ngif="userform.get('phone')?.errors?.['maxlength']">maximum 10 digits</p>
+        </div>
+    
+
+    <br>
+    <label for="">Email:</label>
+    <input type="text" formControlName="Email">
+    <div *ngif="userform.get('Email')?.touched && userform.get('Email')?.invalid">
+        <p class="error" *ngif="userform.get('Email')?.errors?.['required']">Emailis required</p>
+        <p class="error" *ngif="userform.get('Email')?.errors?.['min']">Email is required</p>
+        <p class="error" *ngif="userform.get('Email')?.errors?.['max']">invalid email format</p>
+        </div>
+    
+
+
+    <br>
+    <label for="">password:</label>
+    <input type="text" formControlName="password">
+    <div *ngif="userform.get('password')?.touched && userform.get('password')?.invalid">
+        <p class="error" *ngIf="userform.get('password')?.errors?.['pattern']">password should  1c,1s,1n,1sc.</p>
+
+    </div>
+    <div formGroupName="address"> 
+    <label for="">pin:</label>
+    <input type="text" formControlName="pin">
+    <br>
+    </div>
+    <label for="">city:</label>
+    <input type="text" formControlName="city">
+    <div *ngif="userform.get('address')?.get('city')?.touched && userform.get('address')?.get('city')?.invalid">
+        <p class="error"></p>
+    </div>
+
+
+    <br>
+    <label for="">Type:</label>
+    <label for="">Dayscholor:</label>
+    <input type="radio" name="type" formControlName="type" value="dayscholor">
+    <label for="">Residential:</label>
+    <input type="radio" name="type" formControlName="type" value="Residential">
+    <br>
+    <div *ngIf="userform.get('type')?.value=='dayscholor'">
+    <label for="">Bus Fee:</label>
+    <input type="text" formControlName="busfee">
+    <br>
+   </div>
+   <div *ngIf="userform.get('type')?.value=='Residential'">
+    <label for="">Hostel fee:</label>
+    <input type="text" formControlName="hostelfee">
+    <br>
+   </div>
+
+
+   <label for="">cards:</label>
+   <button (click)="addcard()">add card</button>
+   <br>
+
+
+   <div formArrayName="cards">
+    <div *ngFor="let card of cardsFormArray.controls;let i=index">
+        <div formGroupName="{{i}}">
+            <h2>card {{i+1}}</h2>
+            <label for="">number:</label>
+            <input type="text" formControlName="number">
+            <div *ngif="cardsformarray.controls('i')?.get('number')?.touched && cardsFormArray.controls('i')?.get('number')?.invalid">
+                <p class="error" *ngif="cardsFormArray.controls[i]?.get('number')?.errors?.['required']">card number is required</p>
+            </div>
+        
+            <br>
+            <label for="">Expiry:</label>
+            <input type="text" formControlName="Expiry">
+            <br>
+            <label for="">cvv:</label>
+            <input type="number" formControlName="cvv" >
+            <br>
+            <button (click)="delete(i)">delete</button>
+
+        </div>
+    </div>
+   </div>
+
+
+
+  
+    <button (click)="submit()">submit</button>
+    <br><br>
+
+    <button [disabled]="userform.invalid">submit2</button>
+</form>
+
+
+
+

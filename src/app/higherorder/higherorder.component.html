@@ -1,0 +1,54 @@
+<h1>flipkart</h1>
+
+<button (click)="add20()">add 20 delivery charges</button>
+<button (click)="discount()">50%Discount</button>
+<br>
+<select [(ngModel)]="category" (change)="categorychange()">
+    <option value="gadgets">GADJETS</option>
+    <option value="fashion">FASHION</option>
+    <option value="footware">FOOTWARE</option>
+    <option  value="accessories">ACCESSORIES</option>
+</select>
+
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="search()">
+<button (click)="pricelh()">price low to high</button>
+<button (click)="pricehl()">price high to low</button>
+<br>
+<button (click)="totalprice()">Total cart price</button>
+<br>
+<p>Total Cart Items: <mark>{{products.length}}</mark></p><br>
+<label for="">Name</label>
+<input type="text" [(ngModel)]="productname">
+<label for="">category</label>
+<input type="text" [(ngModel)]="category">
+<label for="">price</label>
+<input type="number" [(ngModel)]="price">
+<label for="">rating</label>
+<input type="number" [(ngModel)]="rating">
+<label for="">freedelivery</label>
+<input type="radio"value="true" [(ngModel)]="freedelivery">
+<label for="">yes</label>
+<input type="radio" value="false" [(ngModel)]="freedelivery" name="">
+<label for="">no</label>
+
+<button (click)="addtocart()">addtocart</button>
+
+<table class="dark-table" border="2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+        </tr>
+    </tbody>
+</table>
+                                       

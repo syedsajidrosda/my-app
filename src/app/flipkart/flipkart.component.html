@@ -1,0 +1,47 @@
+<p>flipkart works!</p>
+<label for="">Name:</label>
+<input type="text" [(ngModel)]="productname">
+<br>
+<label for="">price:</label>
+<input type="text" [(ngModel)]="price">
+<br>
+<label for="">Rating:</label>
+<input type="text" [(ngModel)]="rating">
+<br>
+<label for="">deliverydate:</label>
+<input type="date"[(ngModel)]="deliverydate">
+<br>
+<label for="">free delivery:</label>
+<label for="">yes</label>
+<input type="radio" name="freedelivery" value="true" [(ngModel)]="freedelivery">
+<label for="">no</label>
+<input type="radio" name="freedelivery" value="false" [(ngModel)]="freedelivery"><br>
+<button (click)="submit()">submit</button>
+<h1>list of products</h1>
+
+<table border="6">
+    <thead>
+        <tr >
+            <th>S.NO.</th>
+            <th>productname</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>delivery</th>
+            <th>Free Delivery</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products ; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+            <td>{{product.deliverydate | date:'yyyy-MMM-dd'}}</td>
+            <td>{{product.freedelivery}}</td>
+            <td>
+                <button (click)="delete(i)">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

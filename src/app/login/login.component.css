@@ -1,0 +1,27 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    height: 250px;
+    width: 250px;
+    background-color: white;
+    margin: 5px;
+}
+button{
+    border-radius: 5px;
+    height: 30px;
+    width: 120px;
+    background-color: blue;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+input{
+    height: 20px;
+    width: 200px;
+    margin: 20px;
+}
